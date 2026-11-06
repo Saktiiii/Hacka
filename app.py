@@ -8,7 +8,7 @@ from scheduler import buat_jadwal_produksi
 from energy import hitung_batas_watt, buat_profil_beban
 from finance import hitung_ekonomi
 
-st.set_page_config(page_title="EcoShift | Batik Optimizer", page_icon="⚡", layout="wide")
+st.set_page_config(page_title="MAECO | Batik Optimizer", page_icon="⚡", layout="wide")
 css = Path(__file__).with_name("style.css")
 if css.exists(): st.markdown(f"<style>{css.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
@@ -20,7 +20,7 @@ if "sumber_daya" not in st.session_state:
 if "hasil_jadwal" not in st.session_state: st.session_state.hasil_jadwal = None
 
 with st.sidebar:
-    st.markdown("# ⚡ EcoShift")
+    st.markdown("# ⚡ MAECO")
     st.caption("SMART BATIK PRODUCTION OPTIMIZER")
     page = st.radio("NAVIGASI", ["Dashboard", "Input Produksi", "Jadwal & Energi", "Simulasi Skenario"])
     st.divider(); st.markdown("### Pengaturan Kelistrikan")
@@ -31,7 +31,7 @@ with st.sidebar:
     tariff = st.number_input("Tarif listrik (Rp/kWh)", 0, 10000, 1444, 50)
     safe_watt = hitung_batas_watt(va, pf)
 
-st.markdown('<div class="hero"><div class="eyebrow">SMART ENERGY MANAGEMENT PLATFORM</div><h1>EcoShift — Batik Production Optimizer</h1><p>Optimasi jadwal produksi dengan mempertimbangkan listrik, pekerja, mesin, dan target pesanan.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="hero"><div class="eyebrow">SMART ENERGY MANAGEMENT PLATFORM</div><h1>MAECO — Batik Production Optimizer</h1><p>Optimasi jadwal produksi dengan mempertimbangkan listrik, pekerja, mesin, dan target pesanan.</p></div>', unsafe_allow_html=True)
 orders = st.session_state.pesanan.copy(); resources = st.session_state.sumber_daya
 
 def resource_inputs():
